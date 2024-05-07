@@ -1,8 +1,80 @@
 /* VARIABLES */
 
 /* DEFINITION */
-* { 
+body { 
+    --dark: #000000;
+    --light: #FFFFFF;
+    --padding: 5px;
+    --menu: 100px;
+    --effect: 380ms;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* CLASSES */
+.accent {
+
+}
+
+.canvas {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+.circle {
+    display: inline-block;
+    position: relative;
+    background: var(--accent);
+    box-sizing: border-box;
+    clip-path: circle(50%);
+}
+
+.circle img{
+    transform: scale(0.9);
+    clip-path: circle(50%);
+}
+
+.menu {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.profile {
+    align-content: center;
+    background-color: var(--dark);
+    display: flex;
+    justify-content: center;
+    height: var(--menu);
+    width: calc(var(--menu) - calc(var(--padding * 2)));
+}
+
+.profile img{
+    width: var(--menu);
+    z-index: 1;
+}
+
+.profile:hover { 
+    background-color: var(--accent);
+    margin: 0px;
+    transition: var(--effect);
+}
+
+.row {
+    display: flex;
+
+}
+
+.side {
+    height: calc(100vh - var(--menu));
+    width: var(--menu);
+}
+
+.top {
+    height: var(--menu);
+    width: calc(100% - var(--menu));
+}
+
+.z10 {
+    z-index: 10;
 }

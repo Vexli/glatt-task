@@ -12,9 +12,9 @@ export let v = {
         "agent": "Thunder Client (https://www.thunderclient.com)",
     },
     "click": {
-        "id": "38361189",
         "url": "https://api.clickup.com/api/v2",
         "end": {
+            "user": "/user",
             "team": "/team",
             "space": "/space",
             "folder": "/folder",
@@ -26,13 +26,13 @@ export let v = {
             "Authorization": key.clickup
         },
         "arr": {
+            "user": ["user"],
             "team": ["teams"],
             "space": ["spaces"],
             "task": ["tasks"]
         },
         "param": {
             "space": {"archived": "false"},
-            "task": {"assignees[]": "38361189", "subtasks": true}
         },
         "key": {
             "id": ["id"]

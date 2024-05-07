@@ -1,4 +1,5 @@
 /* IMPORT */
+import {fetchData} from './api.js'
 
 /* DEFINITION */
 /** JSON TO URL QUERY PARAMETER **/
@@ -15,7 +16,6 @@ export function loopParameter(obj) {
     }
     return strQuery;
 }
-
 
 /** LOOP FOR VALUES **/
 export function loopParseArr(array,arrKeys) {
@@ -36,3 +36,14 @@ export function parseApiJson(json,arrKeys) {
     }
     return jsonData;
 }
+
+/** ARRAY TO API Calls **/
+export async function loopArrApi(arrayEnter,arrayReturn,url,endpointStart,endpointEnd,paramaters,method,header) {
+    for (let index = 0; index < arrayEnter.length; index++) {
+        const element = arrayEnter[index];
+        let apiTask = await fetchData(url, endpointStart + element + endpointEnd, paramaters, method, header);
+        arrayReturn.push(apiTask);
+    }
+}
+
+/** GET EXTRA PAGES **/

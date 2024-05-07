@@ -9,14 +9,12 @@ export async function fetchData(url, endpoint, queryParams, method, headers) {
     if (Object.keys(queryParams).length > 0) {
       param = loopParameter(queryParams);
     }
-    console.log("param:",param)
     const urlApi = `${url}${endpoint}${param}`
+    console.log(`${method} request at ${urlApi}`);
     const response = await fetch(urlApi, {
       method: method,
       headers: headers,
     });
-
-    console.log(urlApi);
 
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
