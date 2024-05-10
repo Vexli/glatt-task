@@ -1,5 +1,7 @@
 /* IMPORT */
 import { loopParameter } from './loop.js';
+import {promptPage} from './dom.js'
+
 
 /* DEFINITION */
 /* API Call */
@@ -24,5 +26,15 @@ export async function fetchData(url, endpoint, queryParams, method, headers) {
   } catch (error) {
     console.error('Error fetching data:', error);
     throw error;
+  }
+}
+
+/** API KEY CHECK **/
+export function keyCheck(variable,prompt,placeholder) {
+  if(variable = "") {
+      let key = promptPage(prompt,placeholder);
+      variable = key;
+  } else {
+      let key = variable;
   }
 }

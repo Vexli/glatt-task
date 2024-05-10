@@ -25,3 +25,13 @@ export function addAtt(element,attribute,value) {
     element.setAttribute(attribute,value);
     return element;
 }
+
+/** PROMPT **/
+export function promptPage(title,placeholder) {
+    let input = prompt(title,placeholder);
+    if (input != "") {
+        return input
+    } else {
+        promptPage(title,placeholder);
+    }
+}

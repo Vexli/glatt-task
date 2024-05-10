@@ -1,3 +1,6 @@
+/* NOTES */
+//`keyCheck` PROMPT DOES NOt WORK
+
 /* IMPORT */
 /** GENERAL **/
 import "../css/style.css";
@@ -5,9 +8,9 @@ import "../css/style.css";
 /** JAVASCRIPT **/
 import {key} from './key.js'
 import {v} from './variable.js'
-import {fetchData} from './api.js'
-import {parseApiJson, loopParseArr, loopArrApi} from './loop.js'
-import {addEle, getEle, addAtt} from './dom.js'
+import {fetchData, keyCheck} from './api.js'
+import {parseApiJson, loopParseArr, loopArrApi, loopArrJsonHtml} from './loop.js'
+import {addEle, getEle, addAtt, promptPage} from './dom.js'
 
 /* VARIABLES */
 let arrTask = [];
@@ -17,6 +20,9 @@ let arrTask = [];
 /* RUN */
 /** META **/
 const timeStart = performance.now();
+
+/** GET API KEY **/
+keyCheck(key.clickup,v.prompt.keyClickup,"");
 
 /** USER ENDPOINT **/
 let testUser = await fetchData(v.click.url,v.click.end.user,v.arr.empty,v.api.get, v.click.header);
@@ -43,6 +49,8 @@ let testParseTeam2 = loopParseArr(testParseTeam,v.click.key.id);
 
 /* TASK EDNPOINT */ //TO ADD: Loop for additional pages
 await loopArrApi(testParseTeam2,arrTask,v.click.url,v.click.end.team + "/",v.click.end.task,{"assignees[]": userId, "subtasks": true},v.api.get,v.click.header);
+
+loopArrJsonHtml(arrTask,["tasks","id"],["tasks","id"],"div","div");
 
 console.log(arrTask)
 

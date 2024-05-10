@@ -37,5 +37,8 @@ export let v = {
         "key": {
             "id": ["id"]
         }
+    },
+    "prompt": {
+        "keyClickup": "Please enter your Clickup API Key below"
     }
 }

@@ -1,5 +1,6 @@
 /* IMPORT */
 import {fetchData} from './api.js'
+import {addEle} from './dom.js'
 
 /* DEFINITION */
 /** JSON TO URL QUERY PARAMETER **/
@@ -47,3 +48,16 @@ export async function loopArrApi(arrayEnter,arrayReturn,url,endpointStart,endpoi
 }
 
 /** GET EXTRA PAGES **/
+
+/** **/
+export function loopArrJsonHtml(arr,arrJsonId,arrJsonContent,type,parent) {
+    for (let index = 0; index < arr.length; index++) {
+        const element = arr[index];
+        for (const [key, value] of Object.entries(element)) {
+            for (let i = 0; i < arrJsonId.length; i++) {
+                const ele = arrJsonId[i];
+                console.log(element,ele)
+            }
+        }
+    }
+}

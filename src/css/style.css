@@ -38,6 +38,7 @@ body {
 .menu {
     background-color: var(--dark);
     color: var(--light);
+    position: sticky;
 }
 
 .profile {
