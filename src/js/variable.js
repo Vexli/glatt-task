@@ -12,7 +12,10 @@ export let v = {
         "agent": "Thunder Client (https://www.thunderclient.com)",
     },
     "click": {
-        "url": "https://api.clickup.com/api/v2",
+        "url": {
+            "api": "https://api.clickup.com/api/v2",
+            "task": "https://app.clickup.com/t/"
+        },
         "end": {
             "user": "/user",
             "team": "/team",

@@ -26,6 +26,12 @@ export function addAtt(element,attribute,value) {
     return element;
 }
 
+/** SET CONTENT **/
+export function setContent(element,content) {
+    element.innerHTML = content;
+    return element;
+}
+
 /** PROMPT **/
 export function promptPage(title,placeholder) {
     let input = prompt(title,placeholder);

@@ -50,14 +50,26 @@ export async function loopArrApi(arrayEnter,arrayReturn,url,endpointStart,endpoi
 /** GET EXTRA PAGES **/
 
 /** **/
-export function loopArrJsonHtml(arr,arrJsonId,arrJsonContent,type,parent) {
-    for (let index = 0; index < arr.length; index++) {
-        const element = arr[index];
-        for (const [key, value] of Object.entries(element)) {
-            for (let i = 0; i < arrJsonId.length; i++) {
-                const ele = arrJsonId[i];
-                console.log(element,ele)
-            }
+export function loopForValues(data, keys) {
+    const arrValue = [];
+  
+    function traverse(obj, currentKeys) {
+      if (Array.isArray(obj)) {
+        for (const item of obj) {
+          traverse(item, currentKeys);
         }
+      } else if (typeof obj === 'object' && obj !== null) {
+        for (const key of currentKeys) {
+          if (obj[key] !== undefined) {
+            traverse(obj[key], currentKeys.slice(1));
+          }
+        }
+      } else {
+        arrValue.push(obj);
+      }
     }
+  
+    traverse(data, keys);
+    return arrValue.filter(id => typeof id === 'string');
 }
+  

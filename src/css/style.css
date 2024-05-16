@@ -7,19 +7,21 @@ body {
     --padding: 5px;
     --menu: 100px;
     --effect: 380ms;
+    box-sizing: border-box;
+    font-family: sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 /* CLASSES */
-.accent {
-
-}
 
 .canvas {
     background-color: var(--light);
     color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--menu));
+    width: calc(100% - var(--menu));
 }
 
 .circle {
@@ -66,9 +68,34 @@ body {
 
 }
 
+.scroll {
+    height: 100%; 
+    overflow-y: scroll;
+    scrollbar-width: none;
+    width: 100%;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+  }
+
 .side {
     height: calc(100vh - var(--menu));
     width: var(--menu);
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: var(--padding);
+    padding: calc(var(--padding)*2);
+    width: auto;
+}
+
+.task:hover {
+    background-color: var(--accent);
+    transition: calc(var(--effect)/2);
 }
 
 .top {
