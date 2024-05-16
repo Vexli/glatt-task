@@ -9,7 +9,12 @@ export function clickClassIdUrl(className, urlStart, urlEnd) {
       element.addEventListener('click', () => {
         const id = element.id;
         const fullURL = `${urlStart}${id}${urlEnd}`;
-        window.location.href = fullURL;
+        urlOpen(fullURL);
       });
     });
-  }
+}
+
+/* OPEN URL */
+export function urlOpen(link) {
+    window.location.href = link;
+}

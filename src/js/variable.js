@@ -9,7 +9,7 @@ export let v = {
     "api": {
         "get": "GET",
         "acceptAll": "*/*",
-        "agent": "Thunder Client (https://www.thunderclient.com)",
+        "agent": "Glatt-Task DEV",
     },
     "click": {
         "url": {
@@ -25,8 +25,7 @@ export let v = {
         },
         "header": {
             "Accept": {"$ref": "#/api/acceptAll"},
-            "User-Agent": {"$ref": "#/api/agent"},
-            "Authorization": key.clickup
+            "User-Agent": {"$ref": "#/api/agent"}
         },
         "arr": {
             "user": ["user"],
@@ -39,9 +38,12 @@ export let v = {
         },
         "key": {
             "id": ["id"]
-        }
+        },
     },
     "prompt": {
         "keyClickup": "Please enter your Clickup API Key below"
+    },
+    "loop": {
+        "class": "tasks"
     }
 }

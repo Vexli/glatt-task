@@ -30,11 +30,14 @@ export async function fetchData(url, endpoint, queryParams, method, headers) {
 }
 
 /** API KEY CHECK **/
-export function keyCheck(variable,prompt,placeholder) {
-  if(variable = "") {
-      let key = promptPage(prompt,placeholder);
-      variable = key;
+export function keyCheck(keyReference) {
+  if (!keyReference.value) {
+    let keyAPI = promptPage(keyReference.prompt, keyReference.placeholder);
+    keyReference.value = keyAPI;
+    return keyAPI;
   } else {
-      let key = variable;
+    let keyAPI = keyReference.value;
+    return keyAPI;
   }
 }
+
