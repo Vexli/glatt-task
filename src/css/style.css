@@ -1,108 +1,108 @@
 /* VARIABLES */
 
 /* DEFINITION */
-body { 
-    --dark: #000000;
-    --light: #FFFFFF;
-    --padding: 5px;
-    --menu: 100px;
-    --effect: 380ms;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
+body {
+	--dark: #000000;
+	--light: #ffffff;
+	--padding: 5px;
+	--menu: 100px;
+	--effect: 380ms;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
 /* CLASSES */
 
 .canvas {
-    background-color: var(--light);
-    color: var(--dark);
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - var(--menu));
-    width: calc(100% - var(--menu));
+	background-color: var(--light);
+	color: var(--dark);
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - var(--menu));
+	width: calc(100% - var(--menu));
 }
 
 .circle {
-    display: inline-block;
-    position: relative;
-    background: var(--accent);
-    box-sizing: border-box;
-    clip-path: circle(50%);
+	display: inline-block;
+	position: relative;
+	background: var(--accent);
+	box-sizing: border-box;
+	clip-path: circle(50%);
 }
 
-.circle img{
-    transform: scale(0.9);
-    clip-path: circle(50%);
+.circle img {
+	transform: scale(0.9);
+	clip-path: circle(50%);
 }
 
 .menu {
-    background-color: var(--dark);
-    color: var(--light);
-    position: sticky;
+	background-color: var(--dark);
+	color: var(--light);
+	position: sticky;
 }
 
 .profile {
-    align-content: center;
-    background-color: var(--dark);
-    display: flex;
-    justify-content: center;
-    height: var(--menu);
-    width: calc(var(--menu) - calc(var(--padding * 2)));
+	align-content: center;
+	background-color: var(--dark);
+	display: flex;
+	justify-content: center;
+	height: var(--menu);
+	width: calc(var(--menu) - calc(var(--padding * 2)));
 }
 
-.profile img{
-    width: var(--menu);
-    z-index: 1;
+.profile img {
+	width: var(--menu);
+	z-index: 1;
 }
 
-.profile:hover { 
-    background-color: var(--accent);
-    margin: 0px;
-    transition: var(--effect);
+.profile:hover {
+	background-color: var(--accent);
+	margin: 0px;
+	transition: var(--effect);
 }
 
 .row {
-    display: flex;
-
+	display: flex;
 }
 
 .scroll {
-    height: 100%; 
-    overflow-y: scroll;
-    scrollbar-width: none;
-    width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	width: 100%;
 }
 
 .scroll::-webkit-scrollbar {
-    display: none;
-  }
+	display: none;
+}
 
 .side {
-    height: calc(100vh - var(--menu));
-    width: var(--menu);
+	height: calc(100vh - var(--menu));
+	width: var(--menu);
 }
 
 .task {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: var(--padding);
-    padding: calc(var(--padding)*2);
-    width: auto;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: var(--padding);
+	padding: calc(var(--padding) * 2);
+	width: auto;
 }
 
 .task:hover {
-    background-color: var(--accent);
-    transition: calc(var(--effect)/2);
+	background-color: var(--accent);
+	transition: calc(var(--effect) / 2);
 }
 
 .top {
-    height: var(--menu);
-    width: calc(100% - var(--menu));
+	height: var(--menu);
+	width: calc(100% - var(--menu));
 }
 
-.z10 {
-    z-index: 10;
+.z10  {
+	z-index: 10;
 }
