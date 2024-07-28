@@ -4,6 +4,7 @@
 body {
 	--border: 3px;
 	--dark: #000000;
+	--hidden: #dddddd;
 	--light: #ffffff;
 	--canvasLight: #eeeeee;
 	--prioUltra: #dc2626;
@@ -48,6 +49,15 @@ ul {
 	clip-path: circle(50%);
 }
 
+.col {
+	display: flex;
+	flex-direction: column;
+}
+
+.creator {
+	height: 100%;
+}
+
 .div-Date,
 .div-Status {
 	min-width: 100px;
@@ -63,17 +73,36 @@ ul {
 }
 
 .div-Title {
+	overflow: hidden;
 	text-align: center;
-	width: 70%;
+	width: auto;
 }
 
-.due,
+.dueToday,
 .overdue {
 	border-right: var(--border) solid;
 }
 
-.due {
+.dueToday {
 	border-right-color: var(--prioHigh);
+}
+
+.filter {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	justify-content: flex-end;
+	text-align: center;
+}
+
+.filter div {
+	justify-content: flex-end;
+	margin: var(--padding);
+}
+
+.manualHide {
+	background-color: var(--hidden) !important;
 }
 
 .menu {
@@ -159,8 +188,12 @@ ul {
 	background-color: var(--light);
 	display: flex;
 	flex-direction: row;
+	font-size: 2vh;
+	height: 3vh;
 	justify-content: space-between;
+	line-height: 3vh;
 	margin: var(--padding);
+	overflow: hidden;
 	padding: calc(var(--padding) * 2);
 	transition: calc(var(--effect) / 2);
 	width: auto;
@@ -170,6 +203,10 @@ ul {
 	border-bottom: var(--border) solid var(--accent);
 }
 
+.taskPicture {
+	height: 3vh;
+}
+
 .top {
 	height: var(--menu);
 	width: calc(100% - var(--menu));
@@ -177,4 +214,17 @@ ul {
 
 .z10  {
 	z-index: 10;
+}
+
+/* MEDIA QUERIES */
+/** MOBILE **/
+@media (max-width: 600px) {
+	.canvas {
+		width: 100%;
+	}
+	.filter,
+	.side,
+	.taskPicture {
+		display: none;
+	}
 }

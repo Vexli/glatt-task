@@ -1,7 +1,7 @@
 {
 	"name": "glatt-task",
 	"description": "A simple and customizable program for keeping track of clickup tasks.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"main": "webpack.config.js",
 	"private": true,
 	"directories": {
