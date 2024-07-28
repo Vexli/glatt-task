@@ -16,5 +16,5 @@ export function clickClassIdUrl(className, urlStart, urlEnd) {
 
 /* OPEN URL */
 export function urlOpen(link) {
-	window.location.href = link;
+	open(link);
 }

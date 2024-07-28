@@ -1,5 +1,4 @@
 /* NOTES */
-// FIX: Center text consistently, with or without a date
 // ADD: Loop for additional pages when result says more are available
 // ADD: Filtering options
 
@@ -49,7 +48,7 @@ const userId = testParseUser["id"];
 const userName = testParseUser["username"];
 const userColor = testParseUser["color"];
 const profilePicture = testParseUser["profilePicture"];
-
+const dateToday = unixToDate(new Date());
 let eleProfile = getEle("profile");
 addAtt(eleProfile, "src", profilePicture);
 
@@ -95,15 +94,27 @@ for (let index = 0; index < testArrId.length; index++) {
 	const content = testArrContent[index];
 	const status = testArrStatus[index];
 	const dateDue = unixToDate(testArrDateDue[index]);
+	const priority = arrTask[0].tasks[index].priority?.id ?? 0;
 	const dDue = replaceValue(dateDue, ["1970-01-01"], "");
-	const ele = addEle("div", element);
-	const eStatus = addEle("div", ele);
-	const eTitel = addEle("div", ele);
-	const eDate = addEle("div", ele);
+	const ele = addEle("li", element);
+	const eStatus = addEle("div", `${element}-Status`);
+	const eTitel = addEle("div", `${element}-Titel`);
+	const eDate = addEle("div", `${element}-Date`);
 	setContent(eStatus, status);
 	setContent(eTitel, content);
 	setContent(eDate, dDue);
-	addAtt(ele, "class", "task");
+	addAtt(eStatus, "class", "div-Status");
+	addAtt(eTitel, "class", "div-Title");
+	addAtt(eDate, "class", "div-Date");
+
+	if (dateToday === dDue) {
+		addAtt(ele, "class", `task prio${priority} due`);
+	} else if (dateToday > dDue && dDue !== "") {
+		addAtt(ele, "class", `task prio${priority} overdue`);
+	} else {
+		addAtt(ele, "class", `task prio${priority}`);
+	}
+
 	setParent(eStatus, ele);
 	setParent(eTitel, ele);
 	setParent(eDate, ele);

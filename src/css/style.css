@@ -2,8 +2,14 @@
 
 /* DEFINITION */
 body {
+	--border: 3px;
 	--dark: #000000;
 	--light: #ffffff;
+	--canvasLight: #eeeeee;
+	--prioUltra: #dc2626;
+	--prioHigh: #ea580c;
+	--prioMedium: #fbbf24;
+	--prioLow: #65a30d;
 	--padding: 5px;
 	--menu: 100px;
 	--effect: 380ms;
@@ -13,10 +19,15 @@ body {
 	padding: 0;
 }
 
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+
 /* CLASSES */
 
 .canvas {
-	background-color: var(--light);
+	background-color: var(--canvasLight);
 	color: var(--dark);
 	display: flex;
 	flex-direction: column;
@@ -37,10 +48,42 @@ body {
 	clip-path: circle(50%);
 }
 
+.div-Date,
+.div-Status {
+	min-width: 100px;
+	width: 15%;
+}
+
+.div-Date {
+	text-align: end;
+}
+
+.div-Status {
+	text-align: start;
+}
+
+.div-Title {
+	text-align: center;
+	width: 70%;
+}
+
+.due,
+.overdue {
+	border-right: var(--border) solid;
+}
+
+.due {
+	border-right-color: var(--prioHigh);
+}
+
 .menu {
 	background-color: var(--dark);
 	color: var(--light);
 	position: sticky;
+}
+
+.overdue {
+	border-right-color: var(--prioUltra);
 }
 
 .profile {
@@ -61,6 +104,34 @@ body {
 	background-color: var(--accent);
 	margin: 0px;
 	transition: var(--effect);
+}
+
+.prio0,
+.prio1,
+.prio2,
+.prio3,
+.prio4 {
+	border-left: var(--border) solid;
+}
+
+.prio0 {
+	border-left-color: var(--light);
+}
+
+.prio1 {
+	border-left-color: var(--prioUltra);
+}
+
+.prio2 {
+	border-left-color: var(--prioHigh);
+}
+
+.prio3 {
+	border-left-color: var(--prioMedium);
+}
+
+.prio4 {
+	border-left-color: var(--prioLow);
 }
 
 .row {
@@ -85,17 +156,18 @@ body {
 
 .task {
 	align-items: center;
+	background-color: var(--light);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	margin: var(--padding);
 	padding: calc(var(--padding) * 2);
+	transition: calc(var(--effect) / 2);
 	width: auto;
 }
 
 .task:hover {
-	background-color: var(--accent);
-	transition: calc(var(--effect) / 2);
+	border-bottom: var(--border) solid var(--accent);
 }
 
 .top {
