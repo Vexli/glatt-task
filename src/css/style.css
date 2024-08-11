@@ -68,14 +68,44 @@ ul {
 	text-align: end;
 }
 
-.div-Status {
+.div-Status,
+.task.manualHide .div-Status {
+	position: relative;
 	text-align: start;
+}
+
+.div-Status::after {
+	background-color: transparent;
+	content: "";
+	height: 100%;
+	left: 0;
+	position: absolute;
+	transition: background-color 0.3s ease;
+	top: 0;
+	width: 100%;
+}
+
+.div-Status:hover::after,
+.task.manualHide .div-Status:hover::after {
+	align-items: center;
+	color: white;
+	display: flex;
+	justify-content: center;
+}
+
+.div-Status:hover::after {
+	background-color: var(--prioUltra);
+	content: "Hide";
 }
 
 .div-Title {
 	overflow: hidden;
 	text-align: center;
-	width: auto;
+	width: 100%;
+}
+
+.div-Title:hover {
+	color: var(--accent);
 }
 
 .dueToday,
@@ -93,6 +123,7 @@ ul {
 	flex-direction: row;
 	height: 100%;
 	justify-content: flex-end;
+	margin-right: var(--padding);
 	text-align: center;
 }
 
@@ -200,7 +231,12 @@ ul {
 }
 
 .task:hover {
-	border-bottom: var(--border) solid var(--accent);
+	filter: drop-shadow(var(--border) var(--border) 2mm var(--accent));
+}
+
+.task.manualHide .div-Status:hover::after {
+	background-color: var(--prioLow);
+	content: "Show";
 }
 
 .taskPicture {
@@ -219,12 +255,15 @@ ul {
 /* MEDIA QUERIES */
 /** MOBILE **/
 @media (max-width: 600px) {
-	.canvas {
+	.canvas,
+	.profile {
 		width: 100%;
 	}
+
 	.filter,
 	.side,
-	.taskPicture {
+	.taskPicture,
+	.top {
 		display: none;
 	}
 }

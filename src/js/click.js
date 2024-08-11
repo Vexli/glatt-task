@@ -7,7 +7,7 @@ export function clickClassIdUrl(className, urlStart, urlEnd) {
 
 	elements.forEach((element) => {
 		element.addEventListener("click", () => {
-			const id = element.id;
+			const id = element.parentElement.id;
 			const fullURL = `${urlStart}${id}${urlEnd}`;
 			urlOpen(fullURL);
 		});

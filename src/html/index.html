@@ -8,75 +8,36 @@
 	<body>
 		<div class="row menu sticky">
 			<div class="circle profile">
-				<img id="profile" src="https://picsum.photos/200" alt="" />
+				<img id="profile" src="" alt="" />
 			</div>
 			<div class="top">
 				<div class="filter">
-					<div class="col">
-						<label for="optionAll">All Tasks</label>
-						<input
-							id="optionAll"
-							name="filterTask"
-							type="radio"
-							value="task" />
-					</div>
-					<div class="col">
-						<label for="optionOverdue">Overdue</label>
-						<input
-							id="optionOverdue"
-							name="filterTask"
-							type="radio"
-							value="overdue" />
-					</div>
-					<div class="col">
-						<label for="optionDue">Due Today</label>
-						<input
-							id="optionDue"
-							name="filterTask"
-							type="radio"
-							value="dueToday" />
-					</div>
-					<div class="col">
-						<label for="optionDue">Urgent Priority</label>
-						<input
-							id="optionDue"
-							name="filterTask"
-							type="radio"
-							value="prio1" />
-					</div>
-					<div class="col">
-						<label for="optionDue">High Priority</label>
-						<input
-							id="optionDue"
-							name="filterTask"
-							type="radio"
-							value="prio2" />
-					</div>
-					<div class="col">
-						<label for="optionDue">Medium Priority</label>
-						<input
-							id="optionDue"
-							name="filterTask"
-							type="radio"
-							value="prio3" />
-					</div>
-					<div class="col">
-						<label for="optionDue">Low Priority</label>
-						<input
-							id="optionDue"
-							name="filterTask"
-							type="radio"
-							value="prio4" />
-					</div>
-
-					<div class="col">
-						<label for="manualHide">Hidden</label>
-						<input
-							id="manualHide"
-							name="filterTask"
-							type="radio"
-							value="manualHide" />
-					</div>
+					<select id="filter">
+						<option id="optionAll" value="task" selected>
+							All Tasks
+						</option>
+						<option id="optionOverdue" value="overdue">
+							Overdue
+						</option>
+						<option id="optionDue" value="dueToday">
+							Due Today
+						</option>
+						<option id="optionDue" value="prio1">
+							Urgent Priority
+						</option>
+						<option id="optionDue" value="prio2">
+							High Priority
+						</option>
+						<option id="optionDue" value="prio3">
+							Normal Priority
+						</option>
+						<option id="optionDue" value="prio4">
+							Low Priority
+						</option>
+						<option id="manualHide" value="manualHide">
+							Hidden Tasks
+						</option>
+					</select>
 				</div>
 			</div>
 		</div>

@@ -14,10 +14,12 @@ import { fetchData, keyCheck } from "./api.js";
 import { getAllTasks, showSelectedTask } from "./filter.js";
 import { parseApiJson, loopParseArr, loopArrApi } from "./loop.js";
 import { getEle, addAtt, addTasks } from "./dom.js";
+import { eleHide } from "./hide.js";
 
 import { clickClassIdUrl } from "./click.js";
 /* VARIABLES */
 let arrTask = [];
+let arrHidden = [];
 
 /* FUNCTIONS */
 
@@ -30,14 +32,14 @@ let keyAPI = keyCheck(key.clickup);
 v.click.header.Authorization = keyAPI;
 
 /** USER ENDPOINT **/
-let testUser = await fetchData(
+const testUser = await fetchData(
 	v.click.url.api,
 	v.click.end.user,
 	v.arr.empty,
 	v.api.get,
 	v.click.header
 );
-let testParseUser = parseApiJson(testUser, v.click.arr.user);
+const testParseUser = parseApiJson(testUser, v.click.arr.user);
 
 /*** SET USER INFO ***/
 const userId = testParseUser.id;
@@ -51,6 +53,9 @@ addAtt(eleProfile, "src", profilePicture);
 // Get the root element
 const r = document.querySelector(":root");
 r.style.setProperty("--accent", userColor);
+
+// Select Canvas
+const canvas = getEle("canvas");
 
 /** TEAM ENDPOINT **/
 const testApiTeam = await fetchData(
@@ -74,16 +79,14 @@ await loopArrApi(
 	v.api.get,
 	v.click.header
 );
-
-let parent = getEle("canvas");
-addTasks(parent, arrTask, dateToday);
+addTasks(canvas, arrTask, dateToday);
 
 /* ADD EVENT LISTENERS */
 clickClassIdUrl("div-Title", v.click.url.task, "");
 
 /** Filters **/
 const tasks = getAllTasks();
-let filterTasks = document.querySelectorAll("input");
+let filterTasks = document.querySelectorAll("select");
 filterTasks.forEach(function (ele) {
 	ele.addEventListener("click", (event) => {
 		showSelectedTask(tasks, event.target.value);
@@ -94,13 +97,8 @@ filterTasks.forEach(function (ele) {
 let divDates = document.querySelectorAll(".div-Status");
 divDates.forEach(function (ele) {
 	ele.addEventListener("click", (event) => {
-		if (!event.target.parentElement.classList.contains("manualHide")) {
-			event.target.parentElement.classList.add("manualHide");
-			event.target.parentElement.style.display = "none";
-		} else {
-			event.target.parentElement.classList.remove("manualHide");
-			event.target.parentElement.style.display = "none";
-		}
+		parent = event.target.parentElement;
+		eleHide(arrHidden, parent);
 	});
 });
 

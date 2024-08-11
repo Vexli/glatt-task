@@ -1,6 +1,11 @@
 /* IMPORT */
 
 /* DEFINITION */
+/** GET VARIABLE NAME FROM VARIABLE **/
+export function objName(obj) {
+	return Object.keys(obj).pop();
+}
+
 /** CONVERT UNIX TO DATE **/
 export function unixToDate(unixDate) {
 	const d = new Date(unixDate * 1);

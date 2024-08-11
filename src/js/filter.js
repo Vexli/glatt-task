@@ -10,10 +10,10 @@ export function getAllTasks() {
 export function showSelectedTask(listTask, className) {
 	console.log(listTask);
 	for (let i = 0; i < listTask.length; i++) {
-		if (listTask[i].className.includes(className)) {
+		if (listTask[i].classList.contains(className)) {
 			if (
 				className !== "manualHide" &&
-				listTask[i].classList.includes("manualHide")
+				listTask[i].classList.contains("manualHide")
 			) {
 				document.getElementById(listTask[i].id).style.display = "none";
 			} else {
