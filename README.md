@@ -10,7 +10,7 @@ While the initial version focuses on clickup, in the future the goal of glatt is
 
 ### Priority
 
-## Borders to the left of tasks indicate the priority of the task.
+#### Borders to the left of tasks indicate the priority of the task.
 
 -   Urgent: Red
 -   High: Orange
@@ -18,10 +18,9 @@ While the initial version focuses on clickup, in the future the goal of glatt is
 -   Low: Green
 -   None: Task background
 
-### Duedate
+### Due Date
 
-## Borders to the right of tasks indicate the priority of the task.
+#### Borders to the right of tasks indicate the due date of the task.
 
 -   Overdue: Red
 -   Due: Orange
--
