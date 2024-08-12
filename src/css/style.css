@@ -132,6 +132,11 @@ ul {
 	margin: var(--padding);
 }
 
+.filter input,
+.filter select {
+	margin-left: calc(var(--padding) * 2);
+}
+
 .manualHide {
 	background-color: var(--hidden) !important;
 }

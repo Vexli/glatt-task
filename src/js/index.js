@@ -15,6 +15,7 @@ import { getAllTasks, showSelectedTask } from "./filter.js";
 import { parseApiJson, loopParseArr, loopArrApi } from "./loop.js";
 import { getEle, addAtt, addTasks } from "./dom.js";
 import { eleHide } from "./hide.js";
+import { varUpdate } from "./storage.js";
 
 import { clickClassIdUrl } from "./click.js";
 /* VARIABLES */
@@ -98,7 +99,16 @@ let divDates = document.querySelectorAll(".div-Status");
 divDates.forEach(function (ele) {
 	ele.addEventListener("click", (event) => {
 		parent = event.target.parentElement;
-		eleHide(arrHidden, parent);
+		eleHide("arrHidden", arrHidden, parent);
+	});
+});
+
+/** SAVE VARIABLES **/
+let btnSave = document.querySelectorAll("input.save");
+btnSave.forEach(function (ele) {
+	ele.addEventListener("click", (event) => {
+		varUpdate("arrHidden", arrHidden);
+		console.log(localStorage);
 	});
 });
 
